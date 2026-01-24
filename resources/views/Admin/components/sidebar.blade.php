@@ -19,7 +19,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>Event</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ route('admin.packages.index') }}" class="dropdown-item"> <i class="fa fa-keyboard me-2"></i> Paket</a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-th me-2"></i> Vendor</a>
+                    <a href="{{ route('admin.vendors.index') }}" class="dropdown-item"><i class="fa fa-th me-2"></i> Vendor</a>
                 </div>
             </div>
             <div class="nav-item dropdown">
