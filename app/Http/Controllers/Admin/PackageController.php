@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -12,15 +14,8 @@ class PackageController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $packages = Package::all();
+        return view('Admin.packages.index', compact('packages'));
     }
 
     /**
@@ -28,31 +23,45 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $request->validate([
+                'jenis' => 'required|string|max:255',
+                'harga' => 'required|numeric',
+                'deskripsi' => 'required|string',
+                'status' => 'required|in:aktif,non aktif',
+            ]);
+
+            Package::create(
+                [
+                    'jenis' => $request->jenis,
+                    'harga' => $request->harga,
+                    'deskripsi' => $request->deskripsi,
+                    'status' => $request->status,
+                ]
+            );
+
+        Alert::toast('Paket berhasil ditambahkan.', 'success')->autoClose(3000);
+
+        return redirect()->route('admin.packages.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Package $package)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Package $package)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Package $package)
     {
-        //
+        $request->validate([
+            'jenis' => 'required|string|max:255',
+            'harga' => 'required|numeric',
+            'deskripsi' => 'required|string',
+            'status' => 'required|in:aktif,non aktif',
+        ]);
+
+        $package->update([
+            'jenis' => $request->jenis,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+            'status' => $request->status,
+        ]);
+
+         Alert::toast('Paket berhasil diperbarui.', 'success')->autoClose(3000);
+        return redirect()->route('admin.packages.index');
     }
 
     /**
@@ -60,6 +69,9 @@ class PackageController extends Controller
      */
     public function destroy(Package $package)
     {
-        //
+        $package->delete();
+        
+        Alert::toast('Paket berhasil dihapus.', 'success')->autoClose(3000);
+        return redirect()->route('admin.packages.index');
     }
 }

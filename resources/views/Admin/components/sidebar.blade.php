@@ -14,12 +14,12 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="{{ route('admin.dashboard') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>Event</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="button.html" class="dropdown-item"> <i class="fa fa-keyboard me-2"></i> Paket</a>
-                    <a href="typography.html" class="dropdown-item"><i class="fa fa-th me-2"></i> Vendor</a>
+                    <a href="{{ route('admin.packages.index') }}" class="dropdown-item"> <i class="fa fa-keyboard me-2"></i> Paket</a>
+                    <a href="#" class="dropdown-item"><i class="fa fa-th me-2"></i> Vendor</a>
                 </div>
             </div>
             <div class="nav-item dropdown">
