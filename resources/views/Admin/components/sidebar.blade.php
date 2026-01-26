@@ -31,8 +31,9 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Konten</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="signin.html" class="dropdown-item"><i class="fa fa-table me-2"></i>Galerry</a>
-                    <a href="signin.html" class="dropdown-item"><i class="fa fa-table me-2"></i>Manajemen Konten</a>
+                    <a href="{{route('admin.galleries.index')}}" class="dropdown-item"><i class="fa fa-table me-2"></i>Galerry</a>
+                    <a href="{{ route('admin.contents.index') }}" class="dropdown-item"><i class="fa fa-table me-2"></i>Manajemen Konten</a>
+                    <a href="#" class="dropdown-item"><i class="fa fa-table me-2"></i>FAQ</a>
                 </div>
             </div>
                     <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i> Galleries</a>
