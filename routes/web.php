@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\ContentController;
 
 
 Route::prefix('admin')->group(function () {
@@ -25,6 +27,22 @@ Route::prefix('admin')->group(function () {
             Route::post('/tambah', 'store')->name('admin.vendors.store');
             Route::put('/{vendor}/update', 'update')->name('admin.vendors.update');
             Route::delete('/{vendor}/hapus', 'destroy')->name('admin.vendors.destroy');
+    });
+
+    Route::prefix('Gallery')
+        ->controller(GalleryController::class)
+        ->group(function(){
+            Route::get('/', 'index')->name('admin.galleries.index');
+    });
+
+
+    Route::prefix('contents')
+        ->controller(ContentController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('admin.contents.index');
+            Route::post('/tambah', 'store')->name('admin.contents.store');
+            Route::put('/{id}/update', 'update')->name('admin.contents.update');
+            Route::delete('/{id}/hapus', 'destroy')->name('admin.contents.destroy');
     });
 });
 

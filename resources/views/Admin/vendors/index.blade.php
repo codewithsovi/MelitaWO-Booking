@@ -2,13 +2,10 @@
 
 @section('content')
 <div class="container-fluid pt-4 px-4 min-vh-100">
-    <div class="card shadow mb-4 bg-secondary">
-        
-        <div class="card-header py-3 d-flex justify-content-end">
-            
+    <div class="card shadow mb-4 bg-white"> 
+        <div class="card-header py-3 d-flex justify-content-end">      
             @include('Admin.vendors.modal-create')
         </div>
-
         <div class="card-body">
             <div class="row g-4">
                 <div class="col-12">
