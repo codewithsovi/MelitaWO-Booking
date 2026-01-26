@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\FAQController;
 
 
 Route::prefix('admin')->group(function () {
@@ -43,6 +44,15 @@ Route::prefix('admin')->group(function () {
             Route::post('/tambah', 'store')->name('admin.contents.store');
             Route::put('/{id}/update', 'update')->name('admin.contents.update');
             Route::delete('/{id}/hapus', 'destroy')->name('admin.contents.destroy');
+    });
+
+    Route::prefix('FAQ')
+        ->controller(FAQController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('admin.faqs.index');
+            Route::post('/tambah', 'store')->name('admin.faqs.store');
+            Route::put('/{fAQ}/update', 'update')->name('admin.faqs.update');
+            Route::delete('/{fAQ}/hapus', 'destroy')->name('admin.faqs.destroy');
     });
 });
 

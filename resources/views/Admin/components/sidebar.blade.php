@@ -33,7 +33,7 @@
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{route('admin.galleries.index')}}" class="dropdown-item"><i class="fa fa-table me-2"></i>Galerry</a>
                     <a href="{{ route('admin.contents.index') }}" class="dropdown-item"><i class="fa fa-table me-2"></i>Manajemen Konten</a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-table me-2"></i>FAQ</a>
+                    <a href="{{ route('admin.faqs.index') }}" class="dropdown-item"><i class="fa fa-table me-2"></i>FAQ</a>
                 </div>
             </div>
                     <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i> Galleries</a>
