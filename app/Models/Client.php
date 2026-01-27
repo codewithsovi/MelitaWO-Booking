@@ -14,7 +14,8 @@ class Client extends Model
         'email',
         'phone',
         'alamat',
-        'status'
+        'status',
+        'package_id',
     ];
 
     public function package(): BelongsTo

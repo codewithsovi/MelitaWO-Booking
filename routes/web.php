@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\Admin\DaftarKlienController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\FAQController;
@@ -28,6 +29,13 @@ Route::prefix('admin')->group(function () {
             Route::post('/tambah', 'store')->name('admin.vendors.store');
             Route::put('/{vendor}/update', 'update')->name('admin.vendors.update');
             Route::delete('/{vendor}/hapus', 'destroy')->name('admin.vendors.destroy');
+    });
+
+    Route::prefix('clients')
+        ->controller(DaftarKlienController::class)
+        ->group(function () {
+            Route::get('/paket', 'paket')->name('admin.clients.paket');
+            Route::get('/{paket_id}/daftar', 'index')->name('admin.clients.daftar');
     });
 
     Route::prefix('Gallery')
