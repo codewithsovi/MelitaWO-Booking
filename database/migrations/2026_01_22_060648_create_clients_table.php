@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('alamat');
             $table->enum('status', ['diproses', 'deal', 'ditolak']);
-            $table->unsignedBigInteger('paket_id');
-            $table->foreign('paket_id')->references('id')->on('packages')->onDelete('cascade'); 
+            $table->unsignedBigInteger('package_id');
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

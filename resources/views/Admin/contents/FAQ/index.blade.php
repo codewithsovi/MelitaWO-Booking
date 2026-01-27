@@ -1,8 +1,8 @@
 @extends('Admin.layout.main')
 
 @section('content')
-<div class="container-fluid pt-4 px-4 min-vh-100">
-    <div class="card shadow mb-4 bg-white">
+<div class="container-fluid pt-4 px-4 min-vh-100 bg-netral">
+    <div class="card shadow mb-4 bg-netral">
         
         <div class="card-header py-3 d-flex justify-content-end">
             @include('Admin.contents.FAQ.modal-create')

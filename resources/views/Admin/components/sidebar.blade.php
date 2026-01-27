@@ -25,7 +25,7 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Klien</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="signin.html" class="dropdown-item"><i class="fa fa-table me-2"></i> Daftar Klien</a>
+                    <a href="{{ route('admin.clients.paket') }}" class="dropdown-item"><i class="fa fa-table me-2"></i> Daftar Klien</a>
                 </div>
             </div>
             <div class="nav-item dropdown">
