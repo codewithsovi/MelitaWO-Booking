@@ -1,10 +1,12 @@
-<button type="button" class="btn btn-secondary btn-icon-split" data-toggle="modal" data-target="#editPackageModal-{{ $package->id }}">
+<button type="button" class="btn btn-secondary btn-icon-split" data-toggle="modal"
+    data-target="#editPackageModal-{{ $package->id }}">
     <span class="icon text-white">
         <i class="far fa-edit text-warning"></i>
     </span>
 </button>
 
-<div class="modal fade" id="editPackageModal-{{ $package->id }}" tabindex="-1" role="dialog" aria-labelledby="editPackageModalLabel" aria-hidden="true">
+<div class="modal fade" id="editPackageModal-{{ $package->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="editPackageModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content bg-secondary ">
 
@@ -45,22 +47,22 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="text-white">Status</label>
-                       <div class="d-flex align-items-center  py-2">
-                            <input class="form-check-input m-0" type="radio" name="status" value="aktif">
+                        <div class="d-flex align-items-center py-2">
+                            <input class="form-check-input m-0" type="radio" name="status" value="aktif"
+                                {{ $package->status === 'aktif' ? 'checked' : '' }}>
                             <div class="w-100 ms-3">
-                                <div class="d-flex w-100 align-items-center justify-content-between ">
-                                    <span>Aktif</span>
-                                </div>
+                                <span>Aktif</span>
                             </div>
                         </div>
+
                         <div class="d-flex align-items-center py-2">
-                                <input class="form-check-input m-0" type="radio" name="status" value="non aktif">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Non-Aktif</span>
-                                    </div>
-                                </div>
+                            <input class="form-check-input m-0" type="radio" name="status" value="non aktif"
+                                {{ $package->status === 'non aktif' ? 'checked' : '' }}>
+                            <div class="w-100 ms-3">
+                                <span>Non-Aktif</span>
                             </div>
+                        </div>
+
                     </div>
                 </div>
 
