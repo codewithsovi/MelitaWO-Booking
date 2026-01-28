@@ -4,6 +4,7 @@
 <div class="container-fluid pt-4 px-4 min-vh-100">
     <div class="card shadow mb-4 bg-white">
         <div class="card-header py-3 d-flex justify-content-end">
+            <a href="{{route('admin.clients.paket')}}" class="text-decoration-none text-danger">Back/Daftar Paket</a>
         </div>
         <div class="card-body">
             <div class="row g-4">

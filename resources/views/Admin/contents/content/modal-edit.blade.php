@@ -8,7 +8,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content bg-secondary ">
 
-            <form action="{{ route('admin.contents.update', $content->id) }}" method="POST">
+            <form action="{{ route('admin.contents.update_konten', $content->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
