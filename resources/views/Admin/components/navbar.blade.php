@@ -41,7 +41,15 @@
              </a>
              <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                  <a href="#" class="dropdown-item">Settings</a>
-                 <a href="#" class="dropdown-item">Log Out</a>
+                 <div class="dropdown-item">
+                     <form action="{{ route('logout') }}" method="POST">
+                         @csrf
+                         <button type="submit" class="dropdown-item">
+                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                             Logout
+                         </button>
+                     </form>
+                 </div>
              </div>
          </div>
      </div>

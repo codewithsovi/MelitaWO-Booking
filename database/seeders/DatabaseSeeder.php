@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             // PackageSeeder::class,
-            ClientSeeder::class,
+            // ClientSeeder::class,
+            UserSeeder::class,
             // EventSeeder::class,
             // VendorSeeder::class,
             // GallerySeeder::class,
