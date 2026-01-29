@@ -9,9 +9,20 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\KelolaKontenController;
+use App\Http\Controllers\SesiController;
 
+Route::get('/', function () {
+    return view('Client.landing-page');
+})->name('landing-page');
 
-Route::prefix('admin')->group(function () {
+// client
+
+Route::middleware(['sudahLogin'])->group(function () {
+    Route::get('/login', [SesiController::class, 'toLogin'])->name('login');
+    Route::post('/proses-login', [SesiController::class, 'prosesLogin'])->name('proses.login');
+});
+
+Route::prefix('admin')->middleware(['isLogin', 'userAkses:admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::prefix('paket')
@@ -49,5 +60,9 @@ Route::prefix('admin')->group(function () {
             Route::put('/{fAQ}/update', 'update_faq')->name('admin.faqs.update');
             Route::delete('/{fAQ}/hapus', 'destroy_faq')->name('admin.faqs.destroy');
     });
+
+    Route::post('/logout', [SesiController::class, 'logout'])->name('logout');
+
 });
+     
 
