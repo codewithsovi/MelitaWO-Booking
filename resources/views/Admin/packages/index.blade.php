@@ -5,7 +5,6 @@
     <div class="card shadow mb-4 bg-white">
         
         <div class="card-header py-3 d-flex justify-content-end">
-            
             @include('Admin.packages.modal-create')
         </div>
 

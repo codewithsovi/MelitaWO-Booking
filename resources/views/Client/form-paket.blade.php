@@ -6,13 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <h1>Landing Page</h1>
-        <a href="{{ route('login') }}">Login</a>
-    </div>
-
-    <div>
-        <a href="">Book now</a>
-    </div>
+    <h2>Form Paket</h2>
+    <form action="">
+        <label for="paket"></label>
+    </form>
 </body>
-</html>
+</html>z
