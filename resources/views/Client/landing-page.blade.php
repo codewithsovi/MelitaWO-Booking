@@ -12,7 +12,7 @@
     </div>
 
     <div>
-        <a href="">Book now</a>
+        <a href="{{ route('client.form') }}">Book now</a>
     </div>
 </body>
 </html>
