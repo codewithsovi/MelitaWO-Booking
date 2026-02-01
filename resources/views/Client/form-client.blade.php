@@ -7,17 +7,23 @@
 </head>
 <body>
     <h2>form klien</h2>
-    <form action="">
+    <form action="{{ route('client.store') }}" method="POST">
+        @csrf
         <label for="nama">Nama</label>
-        <input type="text" name="nama">
+        <input type="text" name="nama_client" id="nama_client">
         <label for="email">email</label>
-        <input type="email" name="email">
+        <input type="email" name="email" id="email">
         <label for="phone">phone</label>
-        <input type="text" name="phone">
+        <input type="text" name="phone" id="phone">
         <label for="alamat">alamat</label>
         <textarea name="alamat" id="alamat"></textarea>
-        <label for="nama">Nama</label>
-        <input type="text" name="nama">
+        <label for="package_id">Package</label>
+        <select name="package_id" id="package_id">
+            @foreach ($packages as $package)
+                <option value="{{ $package->id }}">{{ $package->nama_package }}</option>
+            @endforeach
+        </select>
+        <button type="submit">next</button>
     </form>
 </body>
 </html>

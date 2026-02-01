@@ -3,24 +3,20 @@
 namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\Package;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        $packages = Package::all();
+        return view('Client.form-client', compact('packages'));
     }
 
     /**
@@ -28,38 +24,30 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'nama_client' => 'required|string|max:255',
+            'email' => 'required|email|unique:clients,email',
+            'phone' => 'required|string|max:20',
+            'alamat' => 'required|string',
+            'package_id' => 'required|exists:packages,id',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Client $client)
-    {
-        //
-    }
+        session([
+            'booking.client' => [
+                'nama_client' => $request->nama_client,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'alamat' => $request->alamat,
+            ],
+            [
+                'paket'=>[
+                    'package_id' => $request->package_id,
+                ]
+            ]
+        ]); 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Client $client)
-    {
-        //
-    }
+        dd(session()->all());
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Client $client)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Client $client)
-    {
-        //
+        // return redirect()->route('booking.step2');  
     }
 }

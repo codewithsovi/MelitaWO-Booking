@@ -28,3 +28,4 @@ class Client extends Model
         return $this->hasOne(Event::class);
     }
 }
+ 

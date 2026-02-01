@@ -12,7 +12,7 @@ class WeddingPersonController extends Controller
      */
     public function index()
     {
-        //
+        return view('Client.form-wedding-person');
     }
 
     /**

@@ -6,9 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Form Paket</h2>
+    <h2>form wedding person</h2>
     <form action="">
-        <label for="paket"></label>
+        <label for=""></label>
+        <input type="text">
     </form>
 </body>
-</html>z
+</html>

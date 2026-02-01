@@ -10,12 +10,19 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\KelolaKontenController;
 use App\Http\Controllers\SesiController;
+// use App\Http\Controllers\Client\PackageController;
+use App\Http\Controllers\Client\ClientController;
 
 Route::get('/', function () {
     return view('Client.landing-page');
 })->name('landing-page');
 
 // client
+Route::prefix('client')->group(function () {
+        // Route::get('/daftar-paket', [PackageController::class, 'index'])->name('client.packages');
+        Route::get('/from-client', [ClientController::class, 'create'])->name('client.form');
+        route::post('/tambah-client', [ClientController::class, 'store'])->name('client.store');
+    });
 
 Route::middleware(['sudahLogin'])->group(function () {
     Route::get('/login', [SesiController::class, 'toLogin'])->name('login');
