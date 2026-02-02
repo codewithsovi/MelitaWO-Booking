@@ -19,11 +19,12 @@
         <textarea name="alamat" id="alamat"></textarea>
         <label for="package_id">Package</label>
         <select name="package_id" id="package_id">
+            <option value="" disabled selected>Pilih Paket</option>
             @foreach ($packages as $package)
-                <option value="{{ $package->id }}">{{ $package->nama_package }}</option>
+                <option value="{{ $package->id }}">{{ $package->jenis}}</option>
             @endforeach
         </select>
         <button type="submit">next</button>
     </form>
 </body>
-</html>
+</html>`

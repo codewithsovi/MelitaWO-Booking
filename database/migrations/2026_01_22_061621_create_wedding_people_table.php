@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('nama_ayah');
             $table->string('nama_ibu');
-            $table->integer('anak-ke');
+            $table->integer('anak_ke');
             $table->string('nama_kakak')->nullable();
             $table->string('nama_adik')->nullable();
             $table->unsignedBigInteger('event_id');
