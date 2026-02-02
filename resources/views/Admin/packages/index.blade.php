@@ -44,7 +44,8 @@
                                                     @include('Admin.packages.modal-edit', ['package' => $package])
                                                 </div>
                                                 <div class="ms-2">
-                                                    <form action="{{ route('admin.packages.destroy', $package->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus paket ini?');">
+                                                    <form action="{{ route('admin.packages.destroy', $package->id) }}" method="POST"
+                                                     onsubmit="return confirm('Apakah Anda yakin ingin menghapus paket ini?');">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-secondary btn-icon-split">

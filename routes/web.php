@@ -10,8 +10,7 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\KelolaKontenController;
 use App\Http\Controllers\SesiController;
-// use App\Http\Controllers\Client\PackageController;
-use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\BookingController;
 
 Route::get('/', function () {
     return view('Client.landing-page');
@@ -19,10 +18,21 @@ Route::get('/', function () {
 
 // client
 Route::prefix('client')->group(function () {
-        // Route::get('/daftar-paket', [PackageController::class, 'index'])->name('client.packages');
-        Route::get('/from-client', [ClientController::class, 'create'])->name('client.form');
-        route::post('/tambah-client', [ClientController::class, 'store'])->name('client.store');
-    });
+        Route::get('/form-client', [BookingController::class, 'create_client'])->name('client.form');
+        Route::post('/tambah-client', [BookingController::class, 'store_client'])->name('client.store');
+
+        Route::get('/form-event', [BookingController::class, 'create_event'])->name('event.from');
+        Route::post('/tambah-event', [BookingController::class, 'store_event'])->name('event.store');
+
+        Route::get('/form-groom', [BookingController::class, 'create_groom'])->name('groom.from');
+        Route::post('/tambah-groom', [BookingController::class, 'store_groom'])->name('groom.store');
+
+        Route::get('/form-bride', [BookingController::class, 'create_bride'])->name('bride.from');
+        Route::post('/tambah-bride', [BookingController::class, 'store_bride'])->name('bride.store');
+
+        Route::get('/form-concept', [BookingController::class, 'create_concept'])->name('concept.from');
+        Route::post('/tambah-concept', [BookingController::class, 'store_concept'])->name('concept.store');
+});
 
 Route::middleware(['sudahLogin'])->group(function () {
     Route::get('/login', [SesiController::class, 'toLogin'])->name('login');

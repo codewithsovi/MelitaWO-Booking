@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call([
-            // PackageSeeder::class,
+            PackageSeeder::class,
             // ClientSeeder::class,
             UserSeeder::class,
             // EventSeeder::class,
