@@ -28,7 +28,7 @@
         <input type="text" id="nama_ibu" name="nama_ibu"><br><br>
 
         <label for="anak_ke">anak_ke</label>
-        <input type="text" id="anak_ke" name="anak_ke"><br><br>
+        <input type="number" id="anak_ke" name="anak_ke"><br><br>
 
         <label for="nama_kakak">Nama kakak</label>
         <input type="text" id="nama_kakak" name="nama_kakak"><br><br>

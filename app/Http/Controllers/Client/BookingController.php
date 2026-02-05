@@ -8,6 +8,8 @@ use App\Models\WeddingPerson;
 use App\Models\Client;
 use App\Models\Package;
 use App\Models\Concept;
+use App\Models\Vendor;
+use App\Models\DetailVendor;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -177,8 +179,40 @@ class BookingController extends Controller
             ]
         ]);
 
-        dd(session()->all());
+        // dd(session()->all());
 
-        // return redirect()->route('landing-page');
+        return redirect()->route('vendor.from');
     }
+
+    public function create_vendor(){
+        $vendors = Vendor::all();
+        return view('Client.form-vendor', compact('vendors'));
+    }
+
+    public function store_vendor(Request $request){
+        $vendors = collect($request->vendors ?? [])
+            ->filter(fn ($v) => isset($v['checked']))
+            ->values()
+            ->toArray();
+
+        if (empty($vendors)) {
+            return back()->withErrors([
+                'vendors' => 'Pilih minimal 1 vendor'
+            ]);
+        }
+
+        validator(['vendors' => $vendors], [
+            'vendors' => 'required|array',
+            'vendors.*.vendor_id' => 'required|exists:vendors,id',
+            'vendors.*.nama_vendor' => 'required|string',
+            'vendors.*.kontak' => 'nullable|string',
+        ])->validate();
+
+        session([
+            'booking.vendors' => $vendors
+        ]);
+
+        // dd(session()->all());
+    }
+
 }

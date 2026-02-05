@@ -17,7 +17,7 @@
         <textarea name="deskripsi" id="deskripsi"></textarea> <br><br>
 
         <label for="link_referensi">Link Referensi</label>
-        <input type="text" id="link_referensi" name="link_referensi"><br><br>
+        <input type="url" id="link_referensi" name="link_referensi"><br><br>
 
         <button type="submit">Next</button>
     </form>
