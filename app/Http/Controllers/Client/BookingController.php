@@ -18,7 +18,7 @@ class BookingController extends Controller
     public function create_client()
     {
         $packages = Package::all();
-        return view('Client.form-client', compact('packages'));
+        return view('Client.Booking.form-client', compact('packages'));
     }
 
     public function store_client(Request $request)
@@ -50,12 +50,9 @@ class BookingController extends Controller
         return redirect()->route('event.from');  
     }
 
-    // ===========================================================
-    // event
-    // ===========================================================
     public function create_event()
     {
-        return view('Client.form-event');
+        return view('Client.Booking.form-event');
     }
 
     public function store_event(Request $request)
@@ -81,12 +78,9 @@ class BookingController extends Controller
         return redirect()->route('groom.from');
     }
 
-    // ===========================================================
-    // groom
-    // ===========================================================
     public function create_groom()
     {
-        return view('Client.form-groom');
+        return view('Client.Booking.form-groom');
     }
 
     public function store_groom(Request $request)
@@ -124,7 +118,7 @@ class BookingController extends Controller
 
     public function create_bride()
     {
-        return view('Client.form-bride');
+        return view('Client.Booking.form-bride');
     }
 
     public function store_bride(Request $request)
@@ -161,7 +155,7 @@ class BookingController extends Controller
     }
 
     public function create_concept(){
-        return view('Client.form-concept');
+        return view('Client.Booking.form-concept');
     }
 
     public function store_concept(Request $request){
@@ -186,7 +180,7 @@ class BookingController extends Controller
 
     public function create_vendor(){
         $vendors = Vendor::all();
-        return view('Client.form-vendor', compact('vendors'));
+        return view('Client.Booking.form-vendor', compact('vendors'));
     }
 
     public function store_vendor(Request $request){
@@ -213,6 +207,8 @@ class BookingController extends Controller
         ]);
 
         // dd(session()->all());
+
+        return redirect()->route('review-data');
     }
 
 }

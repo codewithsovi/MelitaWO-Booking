@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\KelolaKontenController;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\Client\BookingController;
+use App\Http\Controllers\Client\ReviewDataController;
 
 Route::get('/', function () {
     return view('Client.landing-page');
@@ -35,6 +36,9 @@ Route::prefix('client')->group(function () {
 
     Route::get('/form-vendor', [BookingController::class, 'create_vendor'])->name('vendor.from');
     Route::post('/tambah-vendor', [BookingController::class, 'store_vendor'])->name('vendor.store');
+
+    Route::get('/review-data', [ReviewDataController::class, 'index'])->name('review-data');
+    Route::get('/edit-data', [ReviewDataController::class, 'edit'])->name('edit-data');
 });
 
 Route::middleware(['sudahLogin'])->group(function () {
