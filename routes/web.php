@@ -18,20 +18,23 @@ Route::get('/', function () {
 
 // client
 Route::prefix('client')->group(function () {
-        Route::get('/form-client', [BookingController::class, 'create_client'])->name('client.form');
-        Route::post('/tambah-client', [BookingController::class, 'store_client'])->name('client.store');
+    Route::get('/form-client', [BookingController::class, 'create_client'])->name('client.form');
+    Route::post('/tambah-client', [BookingController::class, 'store_client'])->name('client.store');
 
-        Route::get('/form-event', [BookingController::class, 'create_event'])->name('event.from');
-        Route::post('/tambah-event', [BookingController::class, 'store_event'])->name('event.store');
+    Route::get('/form-event', [BookingController::class, 'create_event'])->name('event.from');
+    Route::post('/tambah-event', [BookingController::class, 'store_event'])->name('event.store');
 
-        Route::get('/form-groom', [BookingController::class, 'create_groom'])->name('groom.from');
-        Route::post('/tambah-groom', [BookingController::class, 'store_groom'])->name('groom.store');
+    Route::get('/form-groom', [BookingController::class, 'create_groom'])->name('groom.from');
+    Route::post('/tambah-groom', [BookingController::class, 'store_groom'])->name('groom.store');
 
-        Route::get('/form-bride', [BookingController::class, 'create_bride'])->name('bride.from');
-        Route::post('/tambah-bride', [BookingController::class, 'store_bride'])->name('bride.store');
+    Route::get('/form-bride', [BookingController::class, 'create_bride'])->name('bride.from');
+    Route::post('/tambah-bride', [BookingController::class, 'store_bride'])->name('bride.store');
 
-        Route::get('/form-concept', [BookingController::class, 'create_concept'])->name('concept.from');
-        Route::post('/tambah-concept', [BookingController::class, 'store_concept'])->name('concept.store');
+    Route::get('/form-concept', [BookingController::class, 'create_concept'])->name('concept.from');
+    Route::post('/tambah-concept', [BookingController::class, 'store_concept'])->name('concept.store');
+
+    Route::get('/form-vendor', [BookingController::class, 'create_vendor'])->name('vendor.from');
+    Route::post('/tambah-vendor', [BookingController::class, 'store_vendor'])->name('vendor.store');
 });
 
 Route::middleware(['sudahLogin'])->group(function () {
