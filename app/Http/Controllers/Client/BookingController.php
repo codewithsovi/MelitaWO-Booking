@@ -18,6 +18,8 @@ class BookingController extends Controller
     public function create_client()
     {
         $packages = Package::all();
+
+        
         return view('Client.Booking.form-client', compact('packages'));
     }
 

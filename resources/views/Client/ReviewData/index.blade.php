@@ -22,6 +22,11 @@
     <p>{{ $booking['event']['lokasi_acara']}}</p>
     <p>{{ $booking['event']['catatan_tambahan']}}</p>
 
+    <h4>Konsep</h4>
+    <p>{{ $booking['concept']['nama_konsep']}}</p>
+    <p>{{ $booking['concept']['deskripsi']}}</p>
+    <p>{{ $booking['concept']['link_referensi']}}</p>
+
     <h4>Data Pengantin Pria</h4>
     <p>{{ $booking['groom']['nama_lengkap']}}</p>
     <p>{{ $booking['groom']['nama_panggilan']}}</p>
@@ -47,7 +52,7 @@
         <p>{{ $vendor['nama_vendor'] }} - {{ $vendor['kontak'] }}</p>
     @endforeach
 
-   <a href="">Edit</a>
+   <a href="{{route('edit-data')}}">Edit</a>
 </body>
 
 </html>
