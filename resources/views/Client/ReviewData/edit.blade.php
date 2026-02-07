@@ -9,7 +9,7 @@
 
 <body>
     <h2>Edit data</h2>
-    <form action="" method="POST">
+    <form action="{{route('update-data')}}" method="POST">
         @csrf
         @method('PUT')
 
@@ -25,12 +25,6 @@
         <textarea name="client[alamat]" id="alamat"
             value="{{ $booking['client']['alamat'] ?? '-' }}">{{$booking['client']['alamat']}}</textarea><br><br>
         <label for="package_id">Package</label>
-        <!-- <select name="paket[package_id]" id="package_id">
-            <option value="" disabled selected>Pilih Paket</option>
-            @foreach ($packages as $package)
-            <option value="{{ $package->id }}">{{ $package->jenis}}</option>
-            @endforeach
-        </select><br><br> -->
 
         <select name="paket[package_id]">
             @foreach ($packages as $package)
@@ -60,14 +54,14 @@
 
         <h2>DATA KONSEP</h2>
         <label for="nama_konsep">Nama konsep</label>
-        <input type="text" id="nama_konsep" name="booking[nama_konsep]"
+        <input type="text" id="nama_konsep" name="concept[nama_konsep]"
             value="{{ $booking['concept']['nama_konsep']}}"><br><br>
 
         <label for="deskripsi">deskripsi</label>
-        <textarea name="booking[deskripsi]" id="deskripsi">{{ $booking['concept']['deskripsi']}}</textarea> <br><br>
+        <textarea name="concept[deskripsi]" id="deskripsi">{{ $booking['concept']['deskripsi']}}</textarea> <br><br>
 
         <label for="link_referensi">Link Referensi</label>
-        <input type="url" id="link_referensi" name="booking[link_referensi]"
+        <input type="url" id="link_referensi" name="concept[link_referensi]"
             value="{{ $booking['concept']['link_referensi']}}"><br><br>
 
         <h2>GROOM</h2>
@@ -82,7 +76,7 @@
             value="{{ $booking['groom']['nama_panggilan']}}"><br><br>
 
         <label for="alamat">Alamat</label>
-        <textarea name="alamat" id="alamat">{{ $booking['groom']['alamat']}}</textarea> <br><br>
+        <textarea name="groom[alamat]" id="alamat">{{ $booking['groom']['alamat']}}</textarea> <br><br>
 
         <label for="nama_ayah">Nama Ayah</label>
         <input type="text" id="nama_ayah" name="groom[nama_ayah]" value="{{ $booking['groom']['nama_ayah']}}"><br><br>
@@ -134,34 +128,6 @@
             value="{{ $booking['bride']['nama_adik']?? '-'}}"><br><br>
 
 
-        <!-- <h2>vendor</h2> -->
-        <!-- @foreach ($vendors as $vendor)
-        <div style="margin-bottom:16px;">
-
-            <label>
-                <input type="checkbox" class="vendor-checkbox" name="vendors[{{ $vendor->id }}][checked]"
-                    data-target="vendor-detail-{{ $vendor->id }}">
-                {{ $vendor->jenis_vendor }}
-            </label>
-
-            <div id="vendor-detail-{{ $vendor->id }}" class="vendor-detail">
-
-                <input type="hidden" name="vendors[{{ $vendor->id }}][vendor_id]" value="{{ $vendor->id }}">
-
-                <div>
-                    <label>Nama Vendor</label><br>
-                    <input type="text" name="vendors[{{ $vendor->id }}][nama_vendor]" placeholder="Nama vendor">
-                </div>
-
-                <div>
-                    <label>Kontak</label><br>
-                    <input type="text" name="vendors[{{ $vendor->id }}][kontak]" placeholder="No HP / IG / WA">
-                </div>
-
-            </div>
-        </div>
-        @endforeach -->
-
         <h2>Vendor</h2>
 
         @foreach ($vendors as $vendor)
@@ -197,10 +163,7 @@
 
             </div>
         </div>
-
         @endforeach
-
-
         <div>
             <button type="submit" class="bg-danger text-white">Simpan Perubahan</button>
             <button>Batal</button>
