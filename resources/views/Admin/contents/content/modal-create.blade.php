@@ -4,7 +4,7 @@
 
 <div class="modal fade" id="createContentModal" tabindex="-1" role="dialog" aria-labelledby="createContentModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content bg-secondary ">
+        <div class="modal-content ">
 
             <form action="{{ route('admin.contents.store') }}" method="POST">
                 @csrf

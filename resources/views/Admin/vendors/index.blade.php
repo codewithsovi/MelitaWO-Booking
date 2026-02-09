@@ -2,18 +2,21 @@
 
 @section('content')
 <div class="container-fluid pt-4 px-4 min-vh-100">
-    <div class="card shadow mb-4 bg-white"> 
-        <div class="card-header py-3 d-flex justify-content-end">      
+    <div class="card shadow mb-4 bg-white">
+        
+        <div class="card-header py-3 d-flex justify-content-between">
+            <h2>Daftar Vendor</h2>
             @include('Admin.vendors.modal-create')
         </div>
+
         <div class="card-body">
             <div class="row g-4">
                 <div class="col-12">
-                    <div class="bg-secondary rounded p-4">
-                        <h2>Daftar Vendor</h2>
+                    <div class="bg-white rounded p-4">
+                        
                         <div class="table-responsive">
                             <table class="table table-hover mb-0 text-white">
-                                <thead>
+                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Jenis Vendor</th>
@@ -34,9 +37,9 @@
                                                     <form action="{{ route('admin.vendors.destroy', $vendor->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus vendor ini?');">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-secondary btn-icon-split">
+                                                        <button type="submit" class="btn btn-icon-split">
                                                             <span class="icon text-primary-50">
-                                                                <i class="fas fa-trash text-primary"></i>
+                                                                <i class="fas fa-trash text-danger"></i>
                                                             </span>
                                                         </button>
                                                     </form>

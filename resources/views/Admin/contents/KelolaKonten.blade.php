@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="row g-4">
                 <div class="col-12">
-                    <div class="bg-secondary rounded p-4">
+                    <div class="bg-white rounded p-4">
                         <h2>Daftar Konten</h2>
                         <div class="table-responsive">
                             <table class="table table-hover mb-0 text-white">

@@ -3,8 +3,8 @@
 </button>
 
 <div class="modal fade" id="createPackageModal" tabindex="-1" role="dialog" aria-labelledby="createPackageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content bg-secondary ">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content pt-2 px-2">
 
             <form action="{{ route('admin.packages.store') }}" method="POST">
                 @csrf
@@ -20,28 +20,28 @@
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="text-white">Jenis Paket</label>
+                        <label class="text-black">Jenis Paket</label>
                         <input type="text" name="jenis" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="text-white">Harga</label>
+                        <label class="text-black">Harga</label>
                         <input type="number" name="harga" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="text-white">Deskripsi</label>
+                        <label class="text-black">Deskripsi</label>
                         <textarea name="deskripsi" class="form-control" required></textarea>
                     </div>
                 </div>
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="text-white">Status</label>
+                        <label class="text-black">Status</label>
                        <div class="d-flex align-items-center  py-2">
                             <input class="form-check-input m-0" type="radio" name="status" value="aktif">
                             <div class="w-100 ms-3">

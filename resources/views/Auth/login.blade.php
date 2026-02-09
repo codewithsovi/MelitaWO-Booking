@@ -2,128 +2,87 @@
 <html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>Melita WO</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="{{asset('darkpan-1.0.0')}}/img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{{asset('darkpan-1.0.0')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('darkpan-1.0.0')}}/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{asset('darkpan-1.0.0')}}/css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{asset('Admin-Template')}}/assets/images/favicon.png" />
 </head>
 
 <body>
-    <div class="container-fluid position-relative d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-        <!-- Sign In Start -->
-        <div class="container-fluid">
-            <div class="row min-vh-100">
-
-                <!-- LEFT: FORM LOGIN -->
-                <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
-                    <div class="col-12 col-sm-8 col-md-7 col-xl-6">
-                        <div class="bg-secondary rounded p-4 p-sm-7">
-                            <div class="d-flex align-items-center justify-content-start mb-3">
-                                <a href="#" class="">
-                                    <!-- <h3 class="text-primary">
-                                <i class="fa fa-user-edit me-2"></i>DarkPan
-                            </h3> -->
-                                </a>
-                                <h3>Login</h3>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth">
+                <div class="row flex-grow">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left p-5">
+                            <div class="brand-logo">
+                                <img src="{{asset('Admin-Template')}}/assets/images/logo.svg">
                             </div>
-                            @if (session('error'))
-                            <div class="alert alert-danger">
+                            <h4>Hello! let's get started</h4>
+                            < @if (session('error')) <div class="alert alert-danger">
                                 {{ session('error') }}
-                            </div>
-                            @endif
-
-                            <form action="{{route('proses.login')}}" method="POST">
+                        </div>
+                        @endif
+                         <form action="{{route('proses.login')}}" method="POST" class="pt-3">
                                 @csrf
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com" name="email">
-                                    <label for="floatingInput">Email address</label>
-                                </div>
-
-                                <div class="form-floating mb-4">
-                                    <input type="password" class="form-control" id="floatingPassword"
-                                        placeholder="Password" name="password">
-                                    <label for="floatingPassword">Password</label>
-                                </div>
-
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">
-                                            Keep me logged in
-                                        </label>
-                                    </div>
-                                    <a href="#">Forgot Password</a>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary py-3 w-100 mb-4">
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+                                    placeholder="email" name="email"> 
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control form-control-lg" id="exampleInputPassword1"
+                                    placeholder="Password" name="password">
+                            </div>
+                            <div class="mt-3 d-grid gap-2">
+                                <button  class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit">
                                     Login
                                 </button>
-                            </form>
-
-                        </div>
+                               
+                            </div>
+                            <div class="my-2 d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <label class="form-check-label text-muted">
+                                        <input type="checkbox" class="form-check-input"> Keep me signed in </label>
+                                </div>
+                                <a href="#" class="auth-link text-primary">Forgot password?</a>
+                            </div>
                     </div>
+                    </form>
                 </div>
-
-                <!-- RIGHT: SPACE / BACKGROUND -->
-                <div class="col-lg-7 d-none d-lg-flex align-items-center justify-content-center bg-primary">
-                    <div class="text-center text-white">
-                        <h1 class="fw-bold">DarkPan</h1>
-                        <p class="mb-0">Admin Dashboard Login</p>
-                    </div>
-                </div>
-
             </div>
         </div>
-        <!-- Sign In End -->
-
     </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/chart/chart.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/easing/easing.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/waypoints/waypoints.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="{{asset('darkpan-1.0.0')}}/js/main.js"></script>
+    <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{asset('Admin-Template')}}/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{asset('Admin-Template')}}/assets/js/off-canvas.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/misc.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/settings.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/todolist.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/jquery.cookie.js"></script>
+    <!-- endinject -->
 </body>
 
 </html>

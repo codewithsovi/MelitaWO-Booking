@@ -1,10 +1,10 @@
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createVendorModal">
-  <i class="fas fa-plus"></i> Tambah Vendor
+  <i class="fas fa-plus"></i>  Tambah Vendor
 </button>
 
 <div class="modal fade" id="createVendorModal" tabindex="-1" role="dialog" aria-labelledby="createVendorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content bg-secondary ">
+        <div class="modal-content">
 
             <form action="{{ route('admin.vendors.store') }}" method="POST">
                 @csrf
@@ -20,7 +20,7 @@
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="text-white">Jenis Vendor</label>
+                        <label class="text-black">Jenis Vendor</label>
                         <input type="text" name="jenis_vendor" class="form-control" required>
                     </div>
                 </div>
