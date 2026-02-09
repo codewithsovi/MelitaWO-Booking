@@ -1,93 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{{asset('darkpan-1.0.0')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('darkpan-1.0.0')}}/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{asset('darkpan-1.0.0')}}/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container-fluid position-relative d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-
-        <!-- Sidebar Start -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{asset('Admin-Template')}}/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{asset('Admin-Template')}}/assets/images/favicon.png" />
+  </head>
+  <body>
+      <!-- partial:partials/_navbar.html -->
+      @include('Admin.components.navbar')
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
        @include('Admin.components.sidebar')
-        <!-- Sidebar End -->
-
-        <!-- Content Start -->
-        <div class="content">
-            <!-- Navbar Start -->
-           @include('Admin.components.navbar')
-            <!-- Navbar End -->
-
-            <!-- Blank Start -->
-           @yield('content')
-            <!-- Blank End -->
-
-            <!-- Footer Start -->
-           @include('Admin.components.footer')
-            <!-- Footer End -->
-        </div>
-        <!-- Content End -->
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- partial -->
+       @yield('content')
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
     </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{asset('Admin-Template')}}/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{asset('Admin-Template')}}/assets/vendors/chart.js/chart.umd.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{asset('Admin-Template')}}/assets/js/off-canvas.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/misc.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/settings.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/todolist.js"></script>
+    <script src="{{asset('Admin-Template')}}/assets/js/jquery.cookie.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{{asset('Admin-Template')}}/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/chart/chart.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/easing/easing.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/waypoints/waypoints.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="{{asset('darkpan-1.0.0')}}/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="{{asset('darkpan-1.0.0')}}/js/main.js"></script>
-
-    <!-- sweetalert2 -->
+        <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
-    @include('sweetalert::alert')
-</body>
-
+       @include('sweetalert::alert')
+  </body>
 </html>

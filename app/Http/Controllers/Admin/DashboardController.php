@@ -16,6 +16,8 @@ class DashboardController extends Controller
         $clientDeal = Client::where('status', 'deal')->count();
         $clientDibatalkan = Client::where('status', 'dibatalkan')->count();
 
+        
+
         return view('Admin.dashboard', compact('countPackage', 'client', 'clientDiproses', 'clientDeal', 'clientDibatalkan'));
     }
 }

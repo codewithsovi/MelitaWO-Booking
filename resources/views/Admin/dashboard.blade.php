@@ -1,165 +1,161 @@
 @extends('Admin.layout.main')
 
 @section('content')
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Paket</p>
-                                <h6 class="mb-0">{{ $countPackage }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Diproses</p>
-                                <h6 class="mb-0">{{ $clientDiproses }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Deal</p>
-                                <h6 class="mb-0">{{ $clientDeal }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Dibatalkan</p>
-                                <h6 class="mb-0">{{ $clientDibatalkan }}</h6>
-                            </div>
-                        </div>
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-home"></i>
+                </span> Dashboard
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                    <div class="card-body">
+                        <img src="{{asset('Admin-Template')}}/assets/images/dashboard/circle.svg"
+                            class="card-img-absolute" alt="circle-image" />
+                        <h4 class="font-weight-normal mb-3">Total Diproses <i
+                                class="mdi mdi-chart-line mdi-24px float-end"></i>
+                        </h4>
+                        <h2 class="mb-5">{{ $clientDiproses }}</h2>
+                        <h6 class="card-text">Total Klien yang berstatus diproses</h6>
                     </div>
                 </div>
             </div>
-            <!-- Sale & Revenue End -->
+            <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-info card-img-holder text-white">
+                    <div class="card-body">
+                        <img src="{{asset('Admin-Template')}}/assets/images/dashboard/circle.svg"
+                            class="card-img-absolute" alt="circle-image" />
+                        <h4 class="font-weight-normal mb-3">Total  Diterima<i
+                                class="mdi mdi-bookmark-outline mdi-24px float-end"></i>
+                        </h4>
+                        <h2 class="mb-5">{{ $clientDeal }}</h2>
+                        <h6 class="card-text">Total Klien yang berstatus diterima</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-success card-img-holder text-white">
+                    <div class="card-body">
+                        <img src="{{asset('Admin-Template')}}/assets/images/dashboard/circle.svg"
+                            class="card-img-absolute" alt="circle-image" />
+                        <h4 class="font-weight-normal mb-3">Total Dibatalkan <i
+                                class="mdi mdi-diamond mdi-24px float-end"></i>
+                        </h4>
+                        <h2 class="mb-5">{{ $clientDibatalkan }}</h2>
+                        <h6 class="card-text">Total Klien yang berstatus dibatalkan</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Widgets Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Daftar Klien Diproses</h6>
-                                <a href="{{ route('admin.clients.paket') }}">Show All</a>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                @foreach ($client as $clientDiproses)
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">{{ $clientDiproses->nama }}</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>{{$clientDiproses->paket}}</span>
-                                    <span>{{$clientDiproses->alamat}}</span>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Daftar Event</h6>
-                               <h6 class="mb-0 text-primary">Kalender</h6>
-                            </div>
-                            <div id="calender"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Daftar Paket</h6>
-                                <a href="{{ route('admin.packages.index') }}">Show All</a>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <input class="form-control bg-dark border-0" type="text" placeholder="Enter task">
-                                <button type="button" class="btn btn-primary ms-2">Add</button>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox" checked>
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span><del>Short task goes here...</del></span>
-                                        <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Jadwal Event</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th> Nama </th>
+                                        <th> Event </th>
+                                        <th> Status </th>
+                                        <th> Tanggal </th>
+                                        <th> Tempat </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="assets/images/faces/face1.jpg" class="me-2" alt="image"> David
+                                            Grey
+                                        </td>
+                                        <td> Fund is not recieved </td>
+                                        <td>
+                                            <label class="badge badge-gradient-success">DONE</label>
+                                        </td>
+                                        <td> Dec 5, 2017 </td>
+                                        <td> WD-12345 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="assets/images/faces/face2.jpg" class="me-2" alt="image"> Stella
+                                            Johnson
+                                        </td>
+                                        <td> High loading time </td>
+                                        <td>
+                                            <label class="badge badge-gradient-warning">PROGRESS</label>
+                                        </td>
+                                        <td> Dec 12, 2017 </td>
+                                        <td> WD-12346 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="assets/images/faces/face3.jpg" class="me-2" alt="image"> Marina
+                                            Michel
+                                        </td>
+                                        <td> Website down for one week </td>
+                                        <td>
+                                            <label class="badge badge-gradient-info">ON HOLD</label>
+                                        </td>
+                                        <td> Dec 16, 2017 </td>
+                                        <td> WD-12347 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="assets/images/faces/face4.jpg" class="me-2" alt="image"> John Doe
+                                        </td>
+                                        <td> Loosing control on server </td>
+                                        <td>
+                                            <label class="badge badge-gradient-danger">REJECTED</label>
+                                        </td>
+                                        <td> Dec 3, 2017 </td>
+                                        <td> WD-12348 </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Widgets End -->
+        </div>
 
-            <!-- Sales Chart Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Worldwide Sales</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <canvas id="worldwide-sales"></canvas>
+        <div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <h4 class="card-title float-start">Visit And Sales Statistics</h4>
+                            <div id="visit-sale-chart-legend"
+                                class="rounded-legend legend-horizontal legend-top-right float-end"></div>
                         </div>
+                        <canvas id="visit-sale-chart" class="mt-4"></canvas>
                     </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Salse & Revenue</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <canvas id="salse-revenue"></canvas>
+                </div>
+            </div>
+            <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Statistik Klien</h4>
+                        <div class="doughnutjs-wrapper d-flex justify-content-center">
+                            <canvas id="traffic-chart"></canvas>
+                        </div>
+                        <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Sales Chart End -->
+        </div>
+
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    @include('Admin.components.footer')
+    <!-- partial -->
+</div>
 
 @endsection

@@ -1,14 +1,6 @@
- <div class="container-fluid pt-4 px-4">
-     <div class="bg-secondary rounded-top p-4">
-         <div class="row">
-             <div class="col-12 col-sm-6 text-center text-sm-start">
-                 &copy; <a href="#">Melita</a> WO Booking
-             </div>
-             <div class="col-12 col-sm-6 text-center text-sm-end">
-                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                 Intagram <a href="https://htmlcodex.com">HTML Codex</a>
-                 <br>Tiktok <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-             </div>
-         </div>
+ <footer class="footer bg-primary">
+     <div class="d-sm-flex justify-content-center justify-content-sm-between">
+         <span class="text-white text-center text-sm-left d-block d-sm-inline-block ">Copyright © 2026 </span>
+         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">Melita Wedding Organizer</span>
      </div>
- </div>
+ </footer>

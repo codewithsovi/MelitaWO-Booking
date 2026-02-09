@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-secondary btn-icon-split" data-toggle="modal" data-target="#editFAQModal-{{ $faq->id }}">
+<button type="button" class="btn btn-icon-split" data-toggle="modal" data-target="#editFAQModal-{{ $faq->id }}">
     <span class="icon text-white">
         <i class="far fa-edit text-warning"></i>
     </span>

@@ -2,18 +2,19 @@
 
 @section('content')
 <div class="container-fluid pt-4 px-4 min-vh-100">
-    <div class="card shadow mb-4 bg-white">
-        <div class="card-header py-3 d-flex justify-content-end">
+    <div class="card shadow mb-4 bg-white">      
+        <div class="card-header py-3 d-flex justify-content-between">
+            <h2>Daftar Klien</h2>
             <a href="{{route('admin.clients.paket')}}" class="text-decoration-none text-danger">Back/Daftar Paket</a>
         </div>
+
         <div class="card-body">
             <div class="row g-4">
                 <div class="col-12">
-                    <div class="bg-secondary rounded p-4">
-                        <h2>Daftar Klien - {{$package->jenis}}</h2>
+                    <div class="bg-white rounded p-4">
                         <div class="table-responsive">
                             <table class="table table-hover mb-0 text-white">
-                                <thead>
+                               <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
