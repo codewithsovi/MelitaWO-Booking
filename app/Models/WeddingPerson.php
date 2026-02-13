@@ -15,6 +15,7 @@ class WeddingPerson extends Model
         'nama_ayah',
         'nama_ibu',
         'alamat',
+        'anak_ke',
         'nama_kakak',
         'nama_adik',
         'event_id'

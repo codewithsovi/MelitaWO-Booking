@@ -11,16 +11,16 @@
         @csrf
 
         <label for="tanggal_acara">Tanggal Acara</label>
-        <input type="date" id="tanggal_acara" name="tanggal_acara"><br><br>
+        <input type="date" id="tanggal_acara" name="event[tanggal_acara]"><br><br>
 
         <label for="waktu_acara">waktu Acara</label>
-        <input type="time" id="waktu_acara" name="waktu_acara"><br><br>
+        <input type="time" id="waktu_acara" name="event[waktu_acara]"><br><br>
 
         <label for="lokasi_acara">lokasi Acara</label>
-       <textarea name="lokasi_acara" id="lokasi_acara"></textarea><br><br>
+       <textarea name="event[lokasi_acara]" id="lokasi_acara"></textarea><br><br>
 
        <label for="catatan_tambahan">Catatan Tambahan</label>
-       <textarea name="catatan_tambahan" id="catatan_tambahan"></textarea> <br><br>
+       <textarea name="event[catatan_tambahan]" id="catatan_tambahan"></textarea> <br><br>
 
         <button type="submit">Next</button>
     </form>

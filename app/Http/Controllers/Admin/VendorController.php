@@ -15,6 +15,7 @@ class VendorController extends Controller
     public function index()
     {
         $vendors = Vendor::all();
+        // $eventsToday = Event::with('client')->whereDate('tanggal_acara', today())->get();
         return view('Admin.vendors.index', compact('vendors'));
     }
 
@@ -36,7 +37,6 @@ class VendorController extends Controller
         Alert::toast('Vendor berhasil ditambahkan.', 'success')->autoClose(3000);
         return redirect()->route('admin.vendors.index');
     }
-
 
     /**
      * Update the specified resource in storage.

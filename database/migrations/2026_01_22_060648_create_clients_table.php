@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama_client');
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('alamat');
-            $table->enum('status', ['diproses', 'deal', 'ditolak']);
+            $table->enum('status', ['diproses', 'diterima', 'ditolak', 'selesai']);
             $table->unsignedBigInteger('package_id');
             $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade'); 
             $table->timestamps();

@@ -11,13 +11,13 @@
         @csrf
 
         <label for="nama_konsep">Nama konsep</label>
-        <input type="text" id="nama_konsep" name="nama_konsep"><br><br>
+        <input type="text" id="nama_konsep" name="concept[nama_konsep]"><br><br>
 
         <label for="deskripsi">deskripsi</label>
-        <textarea name="deskripsi" id="deskripsi"></textarea> <br><br>
+        <textarea name="concept[deskripsi]" id="deskripsi"></textarea> <br><br>
 
         <label for="link_referensi">Link Referensi</label>
-        <input type="url" id="link_referensi" name="link_referensi"><br><br>
+        <input type="url" id="link_referensi" name="concept[link_referensi]"><br><br>
 
         <button type="submit">Next</button>
     </form>

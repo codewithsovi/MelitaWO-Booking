@@ -15,6 +15,7 @@ class PackageController extends Controller
     public function index()
     {
         $packages = Package::all();
+        // $eventsToday = Event::with('client')->whereDate('tanggal_acara', today())->get();
         return view('Admin.packages.index', compact('packages'));
     }
 

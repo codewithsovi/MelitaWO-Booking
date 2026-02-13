@@ -9,16 +9,16 @@
     <h2>form klien</h2>
     <form action="{{ route('client.store') }}" method="POST">
         @csrf
-        <label for="nama">Nama</label>
-        <input type="text" name="nama_client" id="nama_client">
+        <label for="nama_client">Nama</label>
+        <input type="text" name="client[nama_client]" id="nama_client">
         <label for="email">email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="client[email]" id="email">
         <label for="phone">phone</label>
-        <input type="text" name="phone" id="phone">
+        <input type="text" name="client[phone]" id="phone">
         <label for="alamat">alamat</label>
-        <textarea name="alamat" id="alamat"></textarea>
+        <textarea name="client[alamat]" id="alamat"></textarea>
         <label for="package_id">Package</label>
-        <select name="package_id" id="package_id">
+        <select name="paket[package_id]" id="package_id">
             <option value="" disabled selected>Pilih Paket</option>
             @foreach ($packages as $package)
                 <option value="{{ $package->id }}">{{ $package->jenis}}</option>

@@ -14,5 +14,9 @@
     <div>
         <a href="{{ route('client.form') }}">Book now</a>
     </div>
+
+        <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @include('sweetalert::alert')
 </body>
 </html>
