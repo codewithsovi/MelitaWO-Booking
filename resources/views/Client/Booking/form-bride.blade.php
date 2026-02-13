@@ -10,31 +10,31 @@
     <form action="{{ route('bride.store') }}" method="POST">
         @csrf
 
-        <input type="hidden" name="pengantin" value="wanita">
+        <input type="hidden" name="bride[pengantin]" value="wanita">
 
         <label for="nama_lengkap">Nama Lengkap</label>
-        <input type="text" id="nama_lengkap" name="nama_lengkap"><br><br>
+        <input type="text" id="nama_lengkap" name="bride[nama_lengkap]"><br><br>
 
         <label for="nama_panggilan">Nama Panggilan</label>
-        <input type="text" id="nama_panggilan" name="nama_panggilan"><br><br>
+        <input type="text" id="nama_panggilan" name="bride[nama_panggilan]"><br><br>
 
         <label for="alamat">Alamat</label>
-        <textarea name="alamat" id="alamat"></textarea> <br><br>
+        <textarea name="bride[alamat]" id="alamat"></textarea> <br><br>
 
         <label for="nama_ayah">Nama Ayah</label>
-        <input type="text" id="nama_ayah" name="nama_ayah"><br><br>
+        <input type="text" id="nama_ayah" name="bride[nama_ayah]"><br><br>
 
         <label for="nama_ibu">Nama ibu</label>
-        <input type="text" id="nama_ibu" name="nama_ibu"><br><br>
+        <input type="text" id="nama_ibu" name="bride[nama_ibu]"><br><br>
 
         <label for="anak_ke">anak_ke</label>
-        <input type="text" id="anak_ke" name="anak_ke"><br><br>
+        <input type="text" id="anak_ke" name="bride[anak_ke]"><br><br>
 
         <label for="nama_kakak">Nama kakak</label>
-        <input type="text" id="nama_kakak" name="nama_kakak"><br><br>
+        <input type="text" id="nama_kakak" name="bride[nama_kakak]"><br><br>
 
         <label for="nama_adik">Nama adik</label>
-        <input type="text" id="nama_adik" name="nama_adik"><br><br>
+        <input type="text" id="nama_adik" name="bride[nama_adik]"><br><br>
 
         <button type="submit">Next</button>
     </form>

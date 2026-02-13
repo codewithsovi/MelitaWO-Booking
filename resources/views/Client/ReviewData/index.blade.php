@@ -53,7 +53,11 @@
     @endforeach
 
    <a href="{{route('edit-data')}}">Edit</a>
-   <a href=""></a>
+   <form action="{{ route('booking.submit') }}" method="POST">
+    @csrf
+    <button type="submit">Submit Booking</button>
+</form>
+
 </body>
 
 </html>

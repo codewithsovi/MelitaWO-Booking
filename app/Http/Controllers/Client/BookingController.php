@@ -26,26 +26,27 @@ class BookingController extends Controller
     public function store_client(Request $request)
     {
         $request->validate([
-            'nama_client' => 'required|string|max:255',
-            'email' => 'required|email|unique:clients,email',
-            'phone' => 'required|string|max:20',
-            'alamat' => 'required|string',
-            'package_id' => 'required|exists:packages,id',
+            'client.nama_client' => 'required|string|max:255',
+            'client.email' => 'required|email|unique:clients,email',
+            'client.phone' => 'required|string|max:20',
+            'client.alamat' => 'required|string',
+            'paket.package_id' => 'required|exists:packages,id',
         ]);
 
         session([
-            'booking.client' => [
-                'nama_client' => $request->nama_client,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'alamat' => $request->alamat,
-            ],
-            [
-                'paket'=>[
-                    'package_id' => $request->package_id,
-                ]
+            'booking' => [
+                'client' => [
+                    'nama_client' => $request->client['nama_client'],
+                    'email' => $request->client['email'],
+                    'phone' => $request->client['phone'],
+                    'alamat' => $request->client['alamat'],
+                ],
+                'paket' => [
+                    'package_id' => $request->paket['package_id'],
+                ],
             ]
-        ]); 
+        ]);
+
 
         // dd(session()->all());
 
@@ -60,18 +61,18 @@ class BookingController extends Controller
     public function store_event(Request $request)
     {
         $request->validate([
-            'tanggal_acara' => 'required|date',
-            'waktu_acara' => 'required',
-            'lokasi_acara' => 'required|string',
-            'catatan_tambahan' => 'nullable|string',
+            'event.tanggal_acara' => 'required|date',
+            'event.waktu_acara' => 'required',
+            'event.lokasi_acara' => 'required|string',
+            'event.catatan_tambahan' => 'nullable|string',
         ]);
 
         session([
             'booking.event' => [
-                'tanggal_acara' => $request->tanggal_acara,
-                'waktu_acara' => $request->waktu_acara,
-                'lokasi_acara' => $request->lokasi_acara,
-                'catatan_tambahan' => $request->catatan_tambahan,
+                'tanggal_acara' => $request->event['tanggal_acara'],
+                'waktu_acara' => $request->event['waktu_acara'],
+                'lokasi_acara' => $request->event['lokasi_acara'],
+                'catatan_tambahan' => $request->event['catatan_tambahan'],
             ]
         ]);
 
@@ -88,28 +89,28 @@ class BookingController extends Controller
     public function store_groom(Request $request)
     {
         $request->validate([
-            'pengantin' => 'required|string|in:pria,wanita',
-            'nama_lengkap' => 'required|string|max:255',
-            'nama_panggilan' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'nama_ayah' => 'required|string|max:255',
-            'nama_ibu' => 'required|string|max:255',
-            'anak_ke' => 'required|string|max:255',
-            'nama_kakak' => 'nullable|string|max:255',
-            'nama_adik' => 'nullable|string|max:255',
+            'groom.pengantin' => 'required|string|in:pria,wanita',
+            'groom.nama_lengkap' => 'required|string|max:255',
+            'groom.nama_panggilan' => 'required|string|max:255',
+            'groom.alamat' => 'required|string',
+            'groom.nama_ayah' => 'required|string|max:255',
+            'groom.nama_ibu' => 'required|string|max:255',
+            'groom.anak_ke' => 'required|string|max:255',
+            'groom.nama_kakak' => 'nullable|string|max:255',
+            'groom.nama_adik' => 'nullable|string|max:255',
         ]);
 
         session([
             'booking.groom' => [
-                'pengantin' => $request->pengantin,
-                'nama_lengkap' => $request->nama_lengkap,
-                'nama_panggilan' => $request->nama_panggilan,
-                'alamat' => $request->alamat,
-                'nama_ayah' => $request->nama_ayah,
-                'nama_ibu' => $request->nama_ibu,
-                'anak_ke' => $request->anak_ke,
-                'nama_kakak' => $request->nama_kakak,
-                'nama_adik' => $request->nama_adik,
+                'pengantin' => $request->groom['pengantin'],
+                'nama_lengkap' => $request->groom['nama_lengkap'],
+                'nama_panggilan' => $request->groom['nama_panggilan'],
+                'alamat' => $request->groom['alamat'],
+                'nama_ayah' => $request->groom['nama_ayah'],
+                'nama_ibu' => $request->groom['nama_ibu'],
+                'anak_ke' => $request->groom['anak_ke'],
+                'nama_kakak' => $request->groom['nama_kakak'],
+                'nama_adik' => $request->groom['nama_adik'],
             ]
         ]);
 
@@ -126,28 +127,28 @@ class BookingController extends Controller
     public function store_bride(Request $request)
     {
         $request->validate([
-            'pengantin' => 'required|string|in:pria,wanita',
-            'nama_lengkap' => 'required|string|max:255',
-            'nama_panggilan' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'nama_ayah' => 'required|string|max:255',
-            'nama_ibu' => 'required|string|max:255',
-            'anak_ke' => 'required|string|max:255',
-            'nama_kakak' => 'nullable|string|max:255',
-            'nama_adik' => 'nullable|string|max:255',
+            'bride.pengantin' => 'required|string|in:pria,wanita',
+            'bride.nama_lengkap' => 'required|string|max:255',
+            'bride.nama_panggilan' => 'required|string|max:255',
+            'bride.alamat' => 'required|string',
+            'bride.nama_ayah' => 'required|string|max:255',
+            'bride.nama_ibu' => 'required|string|max:255',
+            'bride.anak_ke' => 'required|string|max:255',
+            'bride.nama_kakak' => 'nullable|string|max:255',
+            'bride.nama_adik' => 'nullable|string|max:255',
         ]);
 
         session([
             'booking.bride' => [
-                'pengantin' => $request->pengantin,
-                'nama_lengkap' => $request->nama_lengkap,
-                'nama_panggilan' => $request->nama_panggilan,
-                'alamat' => $request->alamat,
-                'nama_ayah' => $request->nama_ayah,
-                'nama_ibu' => $request->nama_ibu,
-                'anak_ke' => $request->anak_ke,
-                'nama_kakak' => $request->nama_kakak,
-                'nama_adik' => $request->nama_adik,
+                'pengantin' => $request->bride['pengantin'],
+                'nama_lengkap' => $request->bride['nama_lengkap'],
+                'nama_panggilan' => $request->bride['nama_panggilan'],
+                'alamat' => $request->bride['alamat'],
+                'nama_ayah' => $request->bride['nama_ayah'],
+                'nama_ibu' => $request->bride['nama_ibu'],
+                'anak_ke' => $request->bride['anak_ke'],
+                'nama_kakak' => $request->bride['nama_kakak'],
+                'nama_adik' => $request->bride['nama_adik'],
             ]
         ]);
 
@@ -162,16 +163,16 @@ class BookingController extends Controller
 
     public function store_concept(Request $request){
         $request->validate([
-            'nama_konsep' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'link_referensi' => 'nullable|url',
+            'concept.nama_konsep' => 'required|string|max:255',
+            'concept.deskripsi' => 'nullable|string',
+            'concept.link_referensi' => 'nullable|url',
         ]);
 
         session([
             'booking.concept' => [
-                'nama_konsep' => $request->nama_konsep,
-                'deskripsi' => $request->deskripsi,
-                'link_referensi' => $request->link_referensi,
+                'nama_konsep' => $request->concept['nama_konsep'],
+                'deskripsi' => $request->concept['deskripsi'],
+                'link_referensi' => $request->concept['link_referensi'],
             ]
         ]);
 

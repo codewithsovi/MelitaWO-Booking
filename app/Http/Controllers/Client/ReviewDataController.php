@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Event;
 use App\Models\WeddingPerson;
 use App\Models\Client;
@@ -10,6 +12,7 @@ use App\Models\Package;
 use App\Models\Concept;
 use App\Models\Vendor;
 use App\Models\DetailVendor;
+
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
@@ -74,79 +77,88 @@ class ReviewDataController extends Controller
         return redirect()->route('review-data');
     }
 
-    public function final_submit(){
-        $booking = session('booking');
+    public function final_submit()
+{
+    $booking = session('booking');
 
-        DB::transaction(function () use ($booking) {
+    DB::transaction(function () use ($booking) {
 
-            $client = $this->storeClient($booking);
-            $acara  = $this->storeAcara($booking, $client->id);
+        // 1️⃣ Simpan client (parent utama)
+        $client = $this->storeClient($booking);
 
-            $this->storePengantin($booking, $acara->id);
-            $this->storeKonsep($booking, $acara->id);
-            $this->storeVendors($booking, $acara->id);
-        });
+        // 2️⃣ Simpan event (butuh client_id)
+        $event = $this->storeAcara($booking, $client->id);
 
-        session()->forget('booking');
+        // 3️⃣ Simpan tabel yang butuh event_id
+        $this->storePengantin($booking, $event->id);
+        $this->storeKonsep($booking, $event->id);
+        $this->storeVendors($booking, $event->id);
+    });
 
-        return redirect()->route('booking.success');
-    }
+    session()->forget('booking');
 
+            Alert::toast('Booking berhasil dilakukan.', 'success')->autoClose(3000);
+    return redirect()->route('landing-page');
+}
     private function storeClient($booking){
         return Client::create([
-            'nama' => $booking['client']['nama_client'],
+            'nama_client' => $booking['client']['nama_client'],
             'email' => $booking['client']['email'],
-            'no_wa' => $booking['client']['phone'],
+            'phone' => $booking['client']['phone'],
             'alamat' => $booking['client']['alamat'],
-            'paket_id' => $booking['paket']['package_id'],
+            'package_id' => $booking['paket']['package_id'],
             'status' => 'diproses',
         ]);
     }
 
 
-    private function storeAcara($booking, $clientId){
-        return Acara::create([
-                'tanggal' => $booking['event']['tanggal_acara'],
-                'lokasi' => $booking['event']['lokasi_acara'],
-                'catatan_tambahan' => $booking['event']['catatan_tambahan'],
-                'klien_id' => $clientId,
-            ]);
-        }
+    private function storeAcara($booking, $clientId)
+{
+    return Event::create([
+        'tanggal_acara' => $booking['event']['tanggal_acara'],
+        'waktu_acara' => $booking['event']['waktu_acara'],
+        'lokasi_acara' => $booking['event']['lokasi_acara'],
+        'catatan_tambahan' => $booking['event']['catatan_tambahan'] ?? null,
+        'client_id' => $clientId,
+    ]);
+}
 
-        private function storePengantin($booking, $acaraId)
+    private function storePengantin($booking, $acaraId)
         {
             foreach (['groom', 'bride'] as $role) {
-                Pengantin::create([
+                WeddingPerson::create([
                     'jenis_kelamin' => $role === 'groom' ? 'pria' : 'wanita',
                     'nama_lengkap' => $booking[$role]['nama_lengkap'],
                     'nama_panggilan' => $booking[$role]['nama_panggilan'],
+                    'alamat' => $booking[$role]['alamat'],
                     'nama_ayah' => $booking[$role]['nama_ayah'],
                     'nama_ibu' => $booking[$role]['nama_ibu'],
                     'anak_ke' => $booking[$role]['anak_ke'],
-                    'acara_id' => $acaraId,
+                    'nama_kakak' => $booking[$role]['nama_kakak'],
+                    'nama_adik' => $booking[$role]['nama_adik'],
+                    'event_id' => $acaraId,
                 ]);
             }
-        }
+    }
 
     private function storeKonsep($booking, $acaraId)
     {
         Concept::create([
-            'konsep' => $booking['concept']['nama_konsep'],
+            'nama_konsep' => $booking['concept']['nama_konsep'],
             'link_referensi' => $booking['concept']['link_referensi'],
-            'acara_id' => $acaraId,
+            'event_id' => $acaraId,
         ]);
     }
+
     private function storeVendors($booking, $acaraId)
     {
         foreach ($booking['vendors'] as $vendor) {
             DetailVendor::create([
                 'vendor_id' => $vendor['vendor_id'],
                 'nama_vendor' => $vendor['nama_vendor'],
-                'sosial_media' => $vendor['kontak'],
-                'acara_id' => $acaraId,
+                'kontak' => $vendor['kontak'],
+                'event_id' => $acaraId,
             ]);
         }
     }
-
-
 }

@@ -40,6 +40,8 @@ Route::prefix('client')->group(function () {
     Route::get('/review-data', [ReviewDataController::class, 'index'])->name('review-data');
     Route::get('/edit-data', [ReviewDataController::class, 'edit'])->name('edit-data');
     Route::put('/update-data', [ReviewDataController::class, 'update'])->name('update-data');
+
+    Route::post('/Validas-Admin', [ReviewDataController::class, 'final_submit'])->name('booking.submit');
 });
 
 Route::middleware(['sudahLogin'])->group(function () {

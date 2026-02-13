@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <img src="{{asset('Admin-Template')}}/assets/images/dashboard/circle.svg"
                             class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Total  Diterima<i
+                        <h4 class="font-weight-normal mb-3">Total Diterima<i
                                 class="mdi mdi-bookmark-outline mdi-24px float-end"></i>
                         </h4>
                         <h2 class="mb-5">{{ $clientDeal }}</h2>
@@ -62,61 +62,29 @@
                                 <thead>
                                     <tr>
                                         <th> Nama </th>
-                                        <th> Event </th>
                                         <th> Status </th>
                                         <th> Tanggal </th>
+                                        <th> Jam </th>
                                         <th> Tempat </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($events as $event)
                                     <tr>
+                                        <td>{{ $event->client->nama }}</td>
+
                                         <td>
-                                            <img src="assets/images/faces/face1.jpg" class="me-2" alt="image"> David
-                                            Grey
+                                            <label class="badge badge-gradient-success">
+                                                {{ $event->client->status }}
+                                            </label>
                                         </td>
-                                        <td> Fund is not recieved </td>
-                                        <td>
-                                            <label class="badge badge-gradient-success">DONE</label>
-                                        </td>
-                                        <td> Dec 5, 2017 </td>
-                                        <td> WD-12345 </td>
+                                        <td>{{ $event->tanggal_acara }}</td>
+                                        <td>{{ $event->waktu_acara }}</td>
+                                        <td>{{ $event->lokasi_acara }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/images/faces/face2.jpg" class="me-2" alt="image"> Stella
-                                            Johnson
-                                        </td>
-                                        <td> High loading time </td>
-                                        <td>
-                                            <label class="badge badge-gradient-warning">PROGRESS</label>
-                                        </td>
-                                        <td> Dec 12, 2017 </td>
-                                        <td> WD-12346 </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/images/faces/face3.jpg" class="me-2" alt="image"> Marina
-                                            Michel
-                                        </td>
-                                        <td> Website down for one week </td>
-                                        <td>
-                                            <label class="badge badge-gradient-info">ON HOLD</label>
-                                        </td>
-                                        <td> Dec 16, 2017 </td>
-                                        <td> WD-12347 </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/images/faces/face4.jpg" class="me-2" alt="image"> John Doe
-                                        </td>
-                                        <td> Loosing control on server </td>
-                                        <td>
-                                            <label class="badge badge-gradient-danger">REJECTED</label>
-                                        </td>
-                                        <td> Dec 3, 2017 </td>
-                                        <td> WD-12348 </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
+
                             </table>
                         </div>
                     </div>
